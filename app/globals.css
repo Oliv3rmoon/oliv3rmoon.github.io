@@ -1211,3 +1211,422 @@ footer {
 figure.study-stage {
   margin: 0;
 }
+
+/* Film grain over midnight black. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Current page in the masthead. */
+.masthead nav a[aria-current] {
+  text-decoration: underline;
+  text-decoration-color: #77797f;
+  text-underline-offset: 0.5rem;
+}
+.masthead nav a[aria-current='page'] {
+  text-decoration-color: currentColor;
+}
+
+/* Opening titles and scroll reveals. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+}
+@keyframes rise-title {
+  from {
+    opacity: 0;
+    transform: translateY(0.12em);
+    filter: blur(6px);
+  }
+}
+.hero-meta {
+  animation: rise 1s 0.05s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero h1 {
+  animation: rise-title 1.3s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero-bottom {
+  animation: rise 1.1s 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero-footnote {
+  animation: rise 1.1s 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.page-intro > .eyebrow {
+  animation: rise 0.9s 0.05s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.page-intro > .page-title {
+  animation: rise-title 1.2s 0.12s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.page-intro > .page-intro-copy {
+  animation: rise 1s 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0s),
+    transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0s);
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Line studies: the dinosaur head and the drafting sheets. */
+.sketch {
+  position: absolute;
+  inset: 34px 26px 50px;
+  width: calc(100% - 52px);
+  height: calc(100% - 84px);
+  fill: none;
+  stroke: #d8dae0;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+.sketch .draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.6, 0, 0.2, 1);
+}
+html.js .sketch:not(.is-drawn) .draw {
+  stroke-dashoffset: 1;
+}
+.sketch .thin {
+  stroke-width: 0.9;
+}
+.sketch .faint,
+.sketch-guides {
+  stroke: #6e717b;
+  stroke-width: 0.8;
+}
+.sketch-pupil {
+  fill: #f5f5f3;
+  stroke: none;
+}
+.sketch-mechanism {
+  stroke: #9a9ca6;
+  stroke-width: 0.9;
+}
+.sketch-labels path {
+  stroke: #5d606a;
+  stroke-width: 0.7;
+}
+.sketch text {
+  fill: #868994;
+  stroke: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.sketch .sketch-title {
+  fill: #9fa1aa;
+}
+.sketch-jaw {
+  transform-box: view-box;
+  transform-origin: 118px 162px;
+  animation: jaw 7s cubic-bezier(0.45, 0, 0.3, 1) infinite;
+}
+@keyframes jaw {
+  0%,
+  34%,
+  92%,
+  100% {
+    transform: rotate(0deg);
+  }
+  52%,
+  66% {
+    transform: rotate(13deg);
+  }
+}
+.sketch-travel {
+  animation: travel 7s linear infinite;
+}
+@keyframes travel {
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+.dinosaur-visual {
+  background-color: #08090c;
+  background-image:
+    radial-gradient(ellipse at 50% 120%, #2a2c33 0%, #12131899 40%, transparent 75%),
+    linear-gradient(#ffffff08 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    24px 24px,
+    24px 24px;
+}
+.dinosaur-visual:before,
+.dinosaur-visual:after {
+  content: none;
+}
+.dinosaur-figure {
+  margin: 0;
+}
+.dinosaur-figure .dinosaur-visual {
+  height: 420px;
+}
+.specimen-label,
+.visual-index {
+  z-index: 1;
+}
+
+/* Drafting sheets. */
+.sheet-visual {
+  background-color: #0a0d14;
+  background-image:
+    linear-gradient(#9fb4ff0a 1px, transparent 1px),
+    linear-gradient(90deg, #9fb4ff0a 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.plan-sheet {
+  inset: 22px;
+  width: calc(100% - 44px);
+  height: calc(100% - 44px);
+  stroke: #cfd8ee;
+}
+.plan-sheet .sheet-frame {
+  stroke: #3a4152;
+  stroke-width: 0.8;
+}
+.plan-sheet .sheet-heavy {
+  stroke-width: 1.6;
+}
+.plan-sheet .sheet-thin {
+  stroke: #a9b4cc;
+  stroke-width: 0.8;
+}
+.plan-sheet .sheet-faint {
+  stroke: #566079;
+  stroke-width: 0.7;
+}
+.plan-sheet .sheet-dim {
+  stroke: #6f7a93;
+  stroke-width: 0.7;
+}
+.plan-sheet .sheet-title path {
+  stroke: #3a4152;
+  stroke-width: 0.8;
+}
+.plan-sheet text {
+  fill: #8d97ad;
+  font-size: 8px;
+}
+.plan-sheet .sheet-labels text {
+  fill: #7b859c;
+}
+.plan-sheet .callouts path {
+  stroke: #4f586d;
+}
+.project-card:hover .sketch,
+.sheet-card:hover .sketch {
+  stroke: #fff;
+}
+.project-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+}
+.project-card h3 {
+  font-size: clamp(1.9rem, 2.4vw, 2.3rem);
+}
+.sheet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  padding: 20px 0 0;
+}
+.sheet-card {
+  margin: 0;
+}
+.sheet-card .sheet-visual {
+  position: relative;
+  aspect-ratio: 480 / 330;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.sheet-card .plan-sheet {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.sheet-card figcaption {
+  padding-top: 20px;
+}
+.sheet-card h2 {
+  font-size: 1.9rem;
+  margin: 10px 0 8px;
+  line-height: 1.15;
+}
+.sheet-card p {
+  font-size: 0.92rem;
+  color: #adb0bb;
+}
+.sheet-note {
+  margin: 26px 0 30px;
+  max-width: 620px;
+}
+
+/* Study 002 / Serpent. */
+.code-motion {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
+  gap: 48px;
+  align-items: stretch;
+}
+.code-motion-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+}
+.code-motion h2 {
+  font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+.code-motion p {
+  color: #adaeb6;
+  max-width: 360px;
+}
+.code-motion .text-link {
+  align-self: flex-start;
+}
+.serpent {
+  position: relative;
+  height: 560px;
+  border: 1px solid var(--border);
+  background: #07080b;
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: pan-y;
+}
+.serpent-compact {
+  height: 600px;
+}
+.serpent canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.serpent:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(#ffffff06 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, #ffffff06 1px, transparent 1px) 0 0 / 32px 32px,
+    radial-gradient(ellipse at center, transparent 55%, #07080bcc 100%);
+}
+.serpent-corner {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7c7f89;
+  white-space: pre;
+}
+.serpent-tl {
+  top: 18px;
+  left: 20px;
+  color: #b4b6be;
+}
+.serpent-tr {
+  top: 18px;
+  right: 20px;
+}
+.serpent-bl {
+  bottom: 16px;
+  left: 20px;
+  font-variant-numeric: tabular-nums;
+}
+.serpent-br {
+  bottom: 16px;
+  right: 20px;
+}
+
+@media (max-width: 1100px) {
+  .project-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-list > :last-child {
+    grid-column: 1 / -1;
+  }
+  .project-list > :last-child .project-visual {
+    height: 360px;
+  }
+  .code-motion {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .code-motion p {
+    max-width: 520px;
+  }
+}
+@media (max-width: 800px) {
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+  .project-list > :last-child .project-visual {
+    height: 330px;
+  }
+  .sheet-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .sheet-card .sheet-visual {
+    max-width: 640px;
+  }
+  .serpent {
+    height: 440px;
+  }
+  .serpent-tr {
+    display: none;
+  }
+  .dinosaur-figure .dinosaur-visual {
+    height: 320px;
+  }
+  .sketch {
+    inset: 30px 12px 46px;
+    width: calc(100% - 24px);
+    height: calc(100% - 76px);
+  }
+}
+@media (max-width: 430px) {
+  .project-visual,
+  .project-list > :last-child .project-visual {
+    height: 245px;
+  }
+  .serpent {
+    height: 400px;
+  }
+  .serpent-corner {
+    font-size: 0.55rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sketch-jaw,
+  .sketch-travel {
+    animation: none;
+  }
+  html.js .sketch:not(.is-drawn) .draw {
+    stroke-dashoffset: 0;
+  }
+}

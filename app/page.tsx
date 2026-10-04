@@ -1,6 +1,7 @@
 import Image from '@/components/site-image';
 import Link from '@/components/site-link';
 import { MotionStudy } from '@/components/motion-study';
+import { Serpent } from '@/components/serpent';
 import { ProjectList, Contact } from '@/components/portfolio';
 export default function Home() {
   return (
@@ -42,9 +43,28 @@ export default function Home() {
         </div>
         <ProjectList />
       </section>
+      <section className="code-motion section" aria-labelledby="code-motion-title">
+        <div className="code-motion-copy">
+          <span className="eyebrow">02 / Code in motion</span>
+          <h2 id="code-motion-title">
+            A creature
+            <br />
+            <em>written in code.</em>
+          </h2>
+          <p>
+            Fifty-eight vertebrae, four limbs, and a few lines of math. Every
+            joint is solved in real time. Move your cursor, or touch, and it
+            follows.
+          </p>
+          <Link className="text-link" href="/lab#code-studies">
+            More code studies <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <Serpent />
+      </section>
       <section className="passage section">
         <div>
-          <span className="eyebrow">02 / The workshop</span>
+          <span className="eyebrow">03 / The workshop</span>
           <h2>
             Some things begin
             <br />
@@ -75,7 +95,7 @@ export default function Home() {
         </Link>
       </section>
       <section className="home-about section" id="about">
-        <span className="eyebrow">03 / Behind the work</span>
+        <span className="eyebrow">04 / Behind the work</span>
         <p>
           I’m Andrew. An electrical engineering student drawn to practical
           effects, useful tools, and ideas that refuse to stay on a screen.
