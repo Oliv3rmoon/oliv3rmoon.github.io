@@ -1,6 +1,7 @@
 import type { Metadata } from '@/lib/site-metadata';
 import Link from '@/components/site-link';
 import { PageIntro } from '@/components/portfolio';
+import { DinosaurSketch } from '@/components/dinosaur-sketch';
 export const metadata: Metadata = {
   title: 'Animatronic Dinosaur · R&D — Andrew Sandoval',
 };
@@ -38,13 +39,17 @@ export default function Dinosaur() {
         </div>
       </dl>
       <section className="dinosaur-file">
-        <div className="dinosaur-visual">
-          <div className="dinosaur-mark" aria-hidden="true">
-            D.
+        <figure className="dinosaur-figure">
+          <div className="project-visual dinosaur-visual">
+            <DinosaurSketch />
+            <span className="specimen-label">An idea becoming an animal.</span>
+            <span className="visual-index">RESEARCH FILE / 002</span>
           </div>
-          <span className="specimen-label">An idea becoming an animal.</span>
-          <span className="visual-index">RESEARCH FILE / 002</span>
-        </div>
+          <figcaption className="caption">
+            An illustrative line study of the head and jaw pivot — a way of
+            thinking out loud, not the project’s CAD model.
+          </figcaption>
+        </figure>
         <div className="file-note">
           <span className="eyebrow">Present tense</span>
           <h2>

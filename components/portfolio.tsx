@@ -1,15 +1,30 @@
 import Image from '@/components/site-image';
 import Link from '@/components/site-link';
-export function Header() {
+import { DinosaurSketch } from '@/components/dinosaur-sketch';
+import { PlanSheet } from '@/components/plan-sheet';
+const sections = [
+  ['/work', 'Work'],
+  ['/lab', 'Lab'],
+  ['/about', 'About'],
+] as const;
+export function Header({ path = '/' }: { path?: string }) {
   return (
     <header className="masthead" id="top">
       <Link className="wordmark" href="/" aria-label="Andrew Sandoval, home">
         a.s.
       </Link>
       <nav aria-label="Main navigation">
-        <Link href="/work">Work</Link>
-        <Link href="/lab">Lab</Link>
-        <Link href="/about">About</Link>
+        {sections.map(([href, label]) => (
+          <Link
+            key={href}
+            href={href}
+            aria-current={
+              path === href ? 'page' : path.startsWith(href + '/') ? 'true' : undefined
+            }
+          >
+            {label}
+          </Link>
+        ))}
         <Link href="/about#contact">Contact ↗</Link>
       </nav>
     </header>
@@ -93,9 +108,7 @@ export function ProjectList() {
       </Link>
       <Link href="/work/dinosaur" className="project-card">
         <div className="project-visual dinosaur-visual">
-          <div className="dinosaur-mark" aria-hidden="true">
-            D.
-          </div>
+          <DinosaurSketch />
           <span className="specimen-label">An idea becoming an animal.</span>
           <span className="visual-index">RESEARCH FILE / 002</span>
         </div>
@@ -113,6 +126,26 @@ export function ProjectList() {
             CAD direction.
           </p>
           <span className="card-link">Open the research file</span>
+        </div>
+      </Link>
+      <Link href="/work/drafting" className="project-card">
+        <div className="project-visual sheet-visual">
+          <PlanSheet kind="plan" />
+          <span className="visual-index">SHEET A-101</span>
+        </div>
+        <div className="project-card-copy">
+          <div className="project-line">
+            <span className="eyebrow">III / Drafting &amp; design</span>
+            <span className="status">Revit · AutoCAD</span>
+          </div>
+          <h3>
+            Lines that become rooms <span aria-hidden="true">↗</span>
+          </h3>
+          <p>
+            Residential design for ADUs and houses: plans, elevations, and the
+            details that explain how a building goes together.
+          </p>
+          <span className="card-link">Open the drawing set</span>
         </div>
       </Link>
     </div>
