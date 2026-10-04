@@ -2,6 +2,7 @@ import type { Metadata } from '@/lib/site-metadata';
 import Link from '@/components/site-link';
 import { PageIntro } from '@/components/portfolio';
 import { MotionStudy } from '@/components/motion-study';
+import { Serpent } from '@/components/serpent';
 export const metadata: Metadata = { title: 'The Lab — Andrew Sandoval' };
 export default function Lab() {
   return (
@@ -17,8 +18,9 @@ export default function Lab() {
         }
       >
         <p>
-          A place for mechanical curiosity, sci-fi influences, and the thoughts
-          that have not settled into a finished shape.
+          A place for mechanical curiosity, code that moves, sci-fi
+          influences, and the thoughts that have not settled into a finished
+          shape.
         </p>
       </PageIntro>
       <section aria-labelledby="orbit-title">
@@ -38,6 +40,25 @@ export default function Lab() {
             structure.
           </p>
           <span>Concept sculpture · September 2026</span>
+        </div>
+      </section>
+      <section aria-labelledby="serpent-title" id="code-studies">
+        <div className="lab-heading">
+          <h2 id="serpent-title">
+            Serpent <em>/ Study 002</em>
+          </h2>
+          <span className="eyebrow">Code in motion</span>
+        </div>
+        <Serpent compact />
+        <div className="lab-note">
+          <p>
+            A skeletal dragon drawn entirely in code. The spine is a chain of
+            vertebrae that follows the head; ribs, limbs, and claws are solved
+            every frame with inverse kinematics, so each foot plants and steps
+            on its own. Lead it with your cursor or finger. Leave it alone, and
+            it wanders.
+          </p>
+          <span>Canvas 2D · TypeScript · October 2026</span>
         </div>
       </section>
       <section className="case-section">

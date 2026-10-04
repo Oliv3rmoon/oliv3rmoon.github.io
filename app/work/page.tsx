@@ -17,8 +17,8 @@ export default function Work() {
       >
         <p>
           Software for a business I run. Research toward an animatronic
-          dinosaur. Different problems, the same curiosity about how things
-          work.
+          dinosaur. Houses and ADUs drawn in Revit and AutoCAD. Different
+          problems, the same curiosity about how things work.
         </p>
       </PageIntro>
       <section className="section">
