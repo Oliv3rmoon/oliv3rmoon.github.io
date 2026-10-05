@@ -9,8 +9,8 @@ Electrical engineering, animatronics research, and the space between software an
 - Home
 - Selected work
 - DPOC marketplace
-- Animatronic dinosaur — early R&D
-- Lab / Orbit visual study
+- Animatronic dinosaur — early R&D, with a live raptor-pack simulation
+- Lab / Orbit visual study (glitch and code shader) and the Serpent
 - About
 
 ## Development
@@ -33,3 +33,5 @@ The build generates complete HTML for every route, then hydrates the interactive
 Content lives in `app/`. Shared presentation and the 3D viewer live in `components/`. Editable Blender artwork lives in `art/`; optimized website assets live in `public/`.
 
 The dinosaur is in brainstorming, 3D model mapping, and CAD planning. Orbit is a separate conceptual sculpture created for this portfolio, not a dinosaur CAD model or fabricated prototype.
+
+The raptors in the dinosaur page's simulation are original, procedurally built models (`components/raptor.ts`) in a procedural paddock (`components/paddock.ts`); they are a sandbox for motion, not the animatronic's CAD model.

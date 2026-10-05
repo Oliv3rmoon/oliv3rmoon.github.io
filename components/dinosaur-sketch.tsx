@@ -61,7 +61,7 @@ export function DinosaurSketch({ className = '' }: { className?: string }) {
           className="faint"
         />
         <circle cx="222" cy="98" r="7" className="draw" pathLength={1} />
-        <circle cx="222" cy="98" r="2.4" className="sketch-pupil" />
+        <ellipse cx="222" cy="98" rx="2.4" ry="2.4" className="sketch-pupil" />
       </g>
       <g className="sketch-jaw">
         <path
@@ -70,12 +70,20 @@ export function DinosaurSketch({ className = '' }: { className?: string }) {
           d="M118 162C220 156 320 158 396 160C398 168 392 174 380 176C320 186 230 196 150 194C128 193 112 182 118 162Z"
         />
         <path className="draw thin" pathLength={1} d={lowerTeeth} />
-        <path className="faint" d="M150 182C230 178 310 172 372 168" strokeDasharray="3 4" />
+        <path
+          className="faint"
+          d="M150 182C230 178 310 172 372 168"
+          strokeDasharray="3 4"
+        />
       </g>
       <g className="sketch-mechanism">
         <rect x="140" y="110" width="30" height="18" />
         <circle cx="164" cy="119" r="3" />
-        <path d="M164 119L118 162" strokeDasharray="3 3" />
+        <g className="sketch-horn">
+          <path d="M164 119l15 6" />
+          <circle cx="179" cy="125" r="1.6" />
+          <path d="M179 125L150 176" strokeDasharray="3 3" />
+        </g>
         <circle cx="118" cy="162" r="6" />
         <path d="M108 162h20M118 152v20" />
       </g>

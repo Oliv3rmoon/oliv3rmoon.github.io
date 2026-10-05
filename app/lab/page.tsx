@@ -18,9 +18,8 @@ export default function Lab() {
         }
       >
         <p>
-          A place for mechanical curiosity, code that moves, sci-fi
-          influences, and the thoughts that have not settled into a finished
-          shape.
+          A place for mechanical curiosity, code that moves, sci-fi influences,
+          and the thoughts that have not settled into a finished shape.
         </p>
       </PageIntro>
       <section aria-labelledby="orbit-title">
@@ -28,18 +27,18 @@ export default function Lab() {
           <h2 id="orbit-title">
             Orbit <em>/ Study 001</em>
           </h2>
-          <span className="eyebrow">
-            A digital object with physical presence
-          </span>
+          <span className="eyebrow">A digital object that looks back</span>
         </div>
         <MotionStudy />
         <div className="lab-note">
           <p>
-            A Blender-made visual study: a mechanical iris held within orbital
-            rings. Turn it, pause it, and strip the surface away to see the
-            structure.
+            A Blender-made visual study, a mechanical iris held within orbital
+            rings, rendered live and passed through a custom shader that keeps
+            losing its grip on the surface. Patches of it drift into code; move
+            over it and the object reads back as characters. It follows the
+            pointer, and when left alone it looks around, and sometimes at you.
           </p>
-          <span>Concept sculpture · September 2026</span>
+          <span>Blender · Three.js · GLSL · October 2026</span>
         </div>
       </section>
       <section aria-labelledby="serpent-title" id="code-studies">
